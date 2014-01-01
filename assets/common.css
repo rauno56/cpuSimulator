@@ -1,0 +1,112 @@
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+html {
+	/*font-family: 'Open Sans', Arial, sans-serif;*/
+	background-color: hsla(70, 100%, 40%, 0.33);
+	text-align: center;
+	/*padding-top: 100px;*/
+}
+
+* {
+	font: 13px/20px arial,tahoma,verdana;
+	padding: 0;
+	margin: 0;
+	outline: none;
+}
+
+h1 {
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+a {
+	text-decoration: none }
+b {
+	font-weight: bold }
+
+#memory {
+	text-align: left;
+	display: inline-block;
+	min-width: 90%;
+  white-space: nowrap;
+	margin: 50px 25px;
+	height: 50px;
+	border: 1px solid hsl(360, 0%, 20%);
+	background-size: 50px 50px;
+	background-color: #ac0;
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+	                  transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+	                  transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+	                  transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+	                  transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+	                  transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+	                  transparent 75%, transparent);
+}
+
+#content {
+	text-align: center;
+}
+#errors {
+	min-width: 320px;
+}
+#settings label {
+	display: inline-block;
+	width: 90px;
+}
+#settings input {
+	width: 50px;
+	text-align: right;
+}
+
+#content > div {
+	text-align: left;
+	margin: 0px 20px;
+	vertical-align: top;
+	display: inline-block;
+}
+
+#memory .block {
+	display: inline-block;
+	border-left: 5px solid black;
+	border-right: 1px solid black;
+	overflow: hidden;
+  white-space: nowrap;
+	box-sizing: border-box;
+	height: 100%;
+	background-color: hsla(0, 100%, 26%, 0.63);
+	margin: 0;
+}
+
+table td {
+	text-align: right;
+	padding: 0px 3px;
+}
+
+#memory span {
+	font-size: 12px;
+	display: block;
+	text-align: left;
+	margin-bottom: -7px;
+	margin-left: 10%;
+	padding: 0;
+}
+
+#add input {
+	/*[type="text"]*/
+	width: 100px;
+}
+
+#content {
+	margin: 0 auto;
+}
+
+#abort {
+	margin: 5px 0;
+	width: 150px;
+}

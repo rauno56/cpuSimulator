@@ -1,0 +1,88 @@
+
+<html lang="et">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>CPU scheduler</title>
+	<link rel="stylesheet" href="assets/common.css">
+	<link rel="stylesheet" href="assets/animations.css">
+</head>
+<body style="zoom: 1;" ng-app='scheduler' ng-controller="MainCntl as main">
+
+	<div id="memory">
+		<span ng-repeat="ind in main.processes" style='width: {{ind.time*main.blocksize}}; margin-left: {{ind.delay*main.blocksize}}' class="block">
+				<span><u><b>{{ind.job.id}}</b></u></span>
+				<span>s:{{ind.start}}</span>
+				<span>d:{{ind.time}}</span>
+			</span>
+	</div>
+
+	<div id="content">
+		<div id="settings">
+			<h1>Settings</h1>
+				<label>Block size: </label><input type="text" ng-model="main.blocksize"><br>
+				<label>Scheduler: </label>
+				<select ng-model="main.fitterInput">
+					<option ng-repeat="fitter in main.fitters" value="{{fitter}}">{{fitter}}</option>
+				</select>
+		</div>
+		<div id="list">
+			<h1>Manual</h1>
+			<table>
+				<caption>Processes</caption>
+				<thead>
+						<tr>
+							<th>ID</th>
+							<th>Start</th>
+							<th>Size</th>
+						</tr>
+				</thead>
+				<tbody>
+						<tr ng-repeat="ind in main.todo">
+							<th>{{ind.id}}</th>
+							<td>{{ind.start}}</td>
+							<td>{{ind.size}}</td>
+							<td><a href="#" ng-click="main.remove(ind)">X</a></td>
+						</tr>
+				</tbody>
+			</table>
+			<div id="add">
+				<form ng-submit="main.add(main.addInput)">
+					<input placeholder="Add: x,y" type="text" ng-model="main.addInput">
+				</form>
+			</div>
+			<div id="add">
+				<form ng-submit="main.play()">
+					<button>Run</button>
+				</form>
+			</div>
+		</div>
+
+		<div id="play">
+			<h1>Examples</h1>
+			<div ng-repeat="input in main.config.exampleInputs">
+				<a href="#" ng-click="main.play(input)">{{input}}</a>
+			</div>
+			<form ng-submit="main.play(main.playInput)">
+				<input placeholder="Play a scenario" type="text" ng-model="main.playInput">
+			</form>
+		</div>
+
+		<div id="errors">
+			<h1>Mean waiting time</h1>
+			<h1 ng-bind="main.meanTime || '?'">...</h1>
+		</div>
+
+	</div>
+
+	<script src="assets/lib/lodash.js"></script>
+
+	<script src="assets/lib/angular.js"></script>
+	<script src="assets/lib/angular-animate.js"></script>
+	
+	<script src="js/index.js"></script>
+	<script src="js/Memory.js"></script>
+	<script src="js/Todo.js"></script>
+	<script src="js/Job.js"></script>
+
+</body></html>
